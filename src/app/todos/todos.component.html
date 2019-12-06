@@ -1,5 +1,5 @@
-<ul>
-  <li *ngFor="let todo of todos">
+<ul *ngIf="todosService.todos.length; else noTodos">
+  <li *ngFor="let todo of todosService.todos">
     <span [class.done]="todo.completed">
       <input
         type="checkbox"
@@ -11,6 +11,10 @@
 
     <small>{{ todo.date | date: "medium" }}</small>
 
-    <button class="rm">&times;</button>
+    <button class="rm" (click)="removeTodo(todo.id)">&times;</button>
   </li>
 </ul>
+
+<ng-template #noTodos>
+  <p style="text-align: center;">No todos now!</p>
+</ng-template>
