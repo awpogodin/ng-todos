@@ -1,0 +1,10 @@
+<!--suppress HtmlFormInputWithoutLabel -->
+<div>
+  <input
+      type="text"
+      placeholder="Add todo title..."
+      [(ngModel)]="title"
+      (keydown.enter)="addTodo()"
+  >
+  <button (click)="addTodo()">Add todo</button>
+</div>
